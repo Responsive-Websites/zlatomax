@@ -1,0 +1,44 @@
+//base
+
+body {
+  &._lock {
+    overflow: hidden;
+  }
+}
+
+// ._container {
+//     max-width: $main-container-size;
+//     margin: 0 auto;
+//     padding: 0px 15px;
+//     box-sizing: content-box;
+
+//     //1224px - main container size
+//   }
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 1 auto;
+}
+
+._ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+._ibg img {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+}
