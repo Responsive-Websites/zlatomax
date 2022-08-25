@@ -1,12 +1,17 @@
 //base sizes
-$main-container-size: 1280px;
+$mainContainer: 1590px;
+$maxWidthContainer: 1620; //For adaprive value
+$maxWidth: 1920; // Layout canvas size
+$minWidth: 320;
 
+$minWidth: 320px;
+$maxWidth: 1920px;
 //colors
 $color-white: #ffffff;
+$color-dark: #141414;
+$color-black: #000;
 
-//brakepoints
-$md-1: 320px;
-$md-2: 480px;
-$md-3: 768px;
-$md-4: 1024px;
-$md-5: 1920px;
+//breakpoints
+$tablet: 992px;
+$mobile: 768px;
+$mobileSmall: 480px;
