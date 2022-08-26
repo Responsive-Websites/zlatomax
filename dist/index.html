@@ -8,8 +8,9 @@
     <title>Zlatmax</title>
 </head>
   <body>
-    <!-- header -->
-    <!-- header -->
+    <div class="wrapper">
+      <!-- header -->
+      <!-- header -->
 <header class="header">
   <div class="header__top top-header">
     <div class="top-header__container _container">
@@ -42,30 +43,138 @@
       <a href="" class="body-header__logo _icon-logo"></a>
       <div class="body-header__search">
         <form action="#" class="search-header">
-          <button
-            type="submit"
-            class="search-header__button _icon-search"
-          ></button>
+          <button type="submit" class="search-header__button _icon-search"></button>
           <input placeholder="Поиск" type="text" class="search-header__input" />
         </form>
       </div>
-      <div class="body-header__actions actions-header"></div>
+      <div class="body-header__actions actions-header">
+        <a href="#" class="actions-header__location _icon-location"> Москва </a>
+        <div class="actions-header__phones phones-header">
+          <div data-spollers class="phones-header__items">
+            <div class="phones-header__item">
+              <a href="tel:88007771234" class="phones-header__phone">8-800-777-12-34</a>
+              <button type="button" data-spoller class="phones-header__arrow _icon-arrow-bottom"></button>
+              <ul class="phones-header__list">
+                <li>
+                  <a href="tel:81923273274" class="phones-header__phone _icon-footer-phone"
+                    >8-192-327-32-74</a
+                  >
+                </li>
+                <li>
+                  <a href="tel:88407172244" class="phones-header__phone _icon-footer-phone"
+                    >8-840-717-22-44</a
+                  >
+                </li>
+                <li>
+                  <a href="tel:88007431265" class="phones-header__phone _icon-footer-phone"
+                    >8-800-743-12-65</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="#callback1" class="phones-header__callback popup-link"> Заказать звонок </a>
+        </div>
+        <a href="#" class="actions-header__favorite _icon-favorite"></a>
+        <div class="actions-header__cart cart-header">
+          <div class="cart-header__icon _icon-cart">
+            <span>0</span>
+          </div>
+          <div class="cart-header__body">
+            <div class="cart-header__summ">0 р.</div>
+            <a href="" class="cart-header__link">Оформить заказ</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="header__catalog catalog-header"></div>
+  <div class="header__catalog catalog-header">
+    <div class="catalog-header__container _container">
+      <nav class="catalog-header__menu menu-catalog">
+        <ul class="menu-catalog__list">
+          <li class="menu-catalog__item">
+            <a href="#" class="menu-catalog__link">Каталог Ножей</a>
+          </li>
+          <li class="menu-catalog__item">
+            <a href="#" class="menu-catalog__link">Клинковое оружие</a>
+          </li>
+          <li class="menu-catalog__item">
+            <a href="#" class="menu-catalog__link">Сувенирные изделия</a>
+          </li>
+          <li class="menu-catalog__item">
+            <a href="#" class="menu-catalog__link">Фонари ARMYTEK</a>
+          </li>
+          <li class="menu-catalog__item">
+            <a href="#" class="menu-catalog__link">Сопуствующие товары</a>
+          </li>
+        </ul>
+        <div class="menu-catalog__sub-menu sub-menu-catalog">
+          <div class="sub-menu-catalog__block">
+            <div class="sub-menu-catalog__column">
+              <a href="#" class="sub-menu-catalog__category"> Категория ножей </a>
+              <ul class="sub-menu-catalog__list">
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Разделочные ножи</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Туристические ножи</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Ножи охотничьи</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Булатные ножи</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Ножи из дамаска</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Тактического назначения</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Метательные ножи</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Мачете и кукри</a>
+                </li>
+                <li class="sub-menu-catalog__item">
+                  <a href="#" class="sub-menu-catalog__link">Ножи кухонные</a>
+                </li>
+              </ul>
+              <a href="#" class="sub-menu-catalog__all"> Смотреть Все </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
 </header>
 
-    <!-- =====- -->
+      <!-- =====- -->
 
-    <!-- main -->
-    <!-- main -->
+      <!-- popups -->
+      <div class="popup" id="callback1">
+  <div class="popup__wrapper">
+    <div class="popup__content">
+      <button type="button" class="popup__close close-popup">X</button>
+      <div class="popup__text">Тут будет форма !</div>
+    </div>
+  </div>
+</div>
+
+      <!-- =====- -->
+
+      <!-- main -->
+      <!-- main -->
 <main class="page"></main>
 
-    <!-- =====- -->
+      <!-- =====- -->
 
-    <!-- footer -->
-    <!-- footer -->
-    <!-- =====- -->
+      <!-- footer -->
+      <!-- footer -->
+      <!-- =====- -->
+    </div>
     <script src="js/app.min.js"></script>
   </body>
 </html>

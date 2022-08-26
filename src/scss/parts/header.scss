@@ -2,10 +2,10 @@
 @use 'sass:math';
 .header {
   &__top {
-    background-color: $color-dark;
-    color: $color-white;
   }
   &__body {
+  }
+  &__catalog {
   }
 }
 
@@ -13,6 +13,8 @@
 
 //top header
 .top-header {
+  background-color: $color-dark;
+  color: $color-white;
   padding: rem(10) 0px;
   &__container {
     display: flex;
@@ -115,14 +117,20 @@
   &__container {
     display: flex;
     min-height: rem(70);
+    align-items: center;
   }
 
   &__logo {
-    font-size: rem(42);
     color: $color-dark;
+
+    &::before {
+      font-size: rem(42);
+    }
   }
 
   &__search {
+    flex: 1 1 auto;
+    padding-right: rem(20);
     @include adaptiv-value('padding-left', 158, 20, 1);
   }
 
@@ -131,6 +139,7 @@
 }
 
 .search-header {
+  max-width: rem(377);
   background-color: #e5e9ea;
   position: relative;
   border: 1px solid rgba(4, 4, 4, 0.5);
@@ -139,20 +148,26 @@
     position: absolute;
     top: 0;
     left: rem(8);
-    width: rem(30);
+    width: rem(40);
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
     height: rem(40);
-    font-size: rem(14);
+
+    color: rgba(0, 0, 0, 0.5);
+
+    &::before {
+      font-size: rem(14);
+    }
   }
 
   &__input {
+    width: 100%;
     height: rem(40);
     background-color: transparent;
     border-radius: 4px;
-    padding: 0px rem(20) 0px rem(40);
+    padding: 0px rem(20) 0px rem(50);
     color: rgba(0, 0, 0, 0.9);
 
     &::placeholder {
@@ -160,7 +175,202 @@
     }
   }
 }
+
 .actions-header {
+  display: flex;
+  align-items: center;
+  column-gap: rem(30);
+  &__location {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    margin-right: rem(25);
+    &::before {
+      font-size: rem(24);
+      margin-right: rem(10);
+    }
+  }
+
+  &__phones {
+  }
+
+  &__favorite {
+    &::before {
+      font-size: rem(27);
+    }
+  }
+
+  &__cart {
+  }
+}
+
+.phones-header {
+  &__items {
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+  }
+
+  &__phone {
+    font-weight: 600;
+    line-height: math.div(22, 18);
+    white-space: nowrap;
+  }
+
+  &__arrow {
+    color: $color-orange;
+
+    &::before {
+      font-size: rem(10);
+    }
+    margin-left: rem(17);
+    transition: transform 0.3s ease 0s;
+    &._active {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    min-width: 100%;
+    left: 0;
+    background-color: #ecf1f2;
+    padding: rem(15);
+    border-radius: rem(10);
+    margin-top: rem(10);
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: rem(12);
+      }
+      a {
+        display: flex;
+        align-items: center;
+        &::before {
+          color: $color-orange;
+          margin-right: rem(10);
+        }
+      }
+    }
+  }
+
+  &__callback {
+    margin-top: rem(4);
+    color: $color-orange;
+    font-weight: 700;
+    line-height: math.div(22, 18);
+    font-size: inherit;
+  }
+}
+.cart-header {
+  display: flex;
+  align-items: center;
+  column-gap: rem(15);
+  &__icon {
+    flex: 0 0 37px;
+    position: relative;
+    &::before {
+      font-size: rem(35);
+    }
+    span {
+      position: absolute;
+      background-color: $color-orange;
+      font-size: rem(9);
+      width: rem(16);
+      height: rem(16);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      top: 0;
+      right: 0;
+      color: $color-white;
+    }
+  }
+
+  &__body {
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+    flex: 0 0 auto;
+  }
+
+  &__summ {
+    font-weight: 500;
+
+    &:not(:last-child) {
+      margin-bottom: rem(5);
+    }
+  }
+
+  &__link {
+    color: $color-orange;
+  }
+}
+
+//===========================================
+
+//===========================================
+
+.catalog-header {
+  background-color: $color-dark;
+  color: $color-white;
+
+  &__container {
+  }
+
+  &__menu {
+  }
+}
+
+.menu-catalog {
+  &__list {
+    display: flex;
+    gap: rem(10);
+    justify-content: space-between;
+  }
+
+  &__item {
+  }
+
+  &__link {
+    min-height: rem(70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__sub-menu {
+  }
+}
+.sub-menu-catalog {
+  &__block {
+  }
+
+  &__column {
+  }
+
+  &__category {
+  }
+
+  &__list {
+  }
+
+  &__item {
+  }
+
+  &__link {
+  }
+
+  &__all {
+  }
 }
 
 //===========================================

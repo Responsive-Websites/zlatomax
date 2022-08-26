@@ -2,17 +2,23 @@
 <html lang="en">
   @@include('html/head.html', { "title":"Zlatmax" })
   <body>
-    <!-- header -->
-    @@include('html/header.html', {})
-    <!-- =====- -->
+    <div class="wrapper">
+      <!-- header -->
+      @@include('html/header.html', {})
+      <!-- =====- -->
 
-    <!-- main -->
-    @@include('html/main.html', {})
-    <!-- =====- -->
+      <!-- popups -->
+      @@include('html/popup-callback.html', {})
+      <!-- =====- -->
 
-    <!-- footer -->
-    @@include('html/footer.html', {})
-    <!-- =====- -->
+      <!-- main -->
+      @@include('html/main.html', {})
+      <!-- =====- -->
+
+      <!-- footer -->
+      @@include('html/footer.html', {})
+      <!-- =====- -->
+    </div>
     <script src="js/app.min.js"></script>
   </body>
 </html>
