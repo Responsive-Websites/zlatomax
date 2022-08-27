@@ -25,6 +25,10 @@ header,
 aside {
   display: block;
 }
+button {
+  background-color: inherit;
+  font-size: inherit;
+}
 html,
 body {
   height: 100%;

@@ -230,11 +230,7 @@
 const spollersArray = document.querySelectorAll('[data-spollers]');
 if (spollersArray.length > 0) {
   //Получение обычных спойлеров
-  const spollersRegular = Array.from(spollersArray).filter(function (
-    item,
-    index,
-    self
-  ) {
+  const spollersRegular = Array.from(spollersArray).filter(function (item, index, self) {
     return !item.dataset.spollers.split(',')[0];
   });
 
@@ -244,11 +240,7 @@ if (spollersArray.length > 0) {
   }
 
   //Получение спойлеров с медиа запросами
-  const spollersMedia = Array.from(spollersArray).filter(function (
-    item,
-    index,
-    self
-  ) {
+  const spollersMedia = Array.from(spollersArray).filter(function (item, index, self) {
     return item.dataset.spollers.split(',')[0];
   });
 
@@ -267,16 +259,7 @@ if (spollersArray.length > 0) {
 
     //Получаем уникальные брейкпоинты
     let mediaQueries = breakpointsArray.map(function (item) {
-      return (
-        '(' +
-        item.type +
-        '-width: ' +
-        item.value +
-        'px),' +
-        item.value +
-        ',' +
-        item.type
-      );
+      return '(' + item.type + '-width: ' + item.value + 'px),' + item.value + ',' + item.type;
     });
     mediaQueries = mediaQueries.filter(function (item, index, self) {
       return self.indexOf(item) === index;
@@ -340,13 +323,9 @@ if (spollersArray.length > 0) {
   function setSpollerAction(e) {
     const el = e.target;
     if (el.hasAttribute('data-spoller') || el.closest('[data-spoller]')) {
-      const spollerTitle = el.hasAttribute('data-spoller')
-        ? el
-        : el.closest('[data-spoller]');
+      const spollerTitle = el.hasAttribute('data-spoller') ? el : el.closest('[data-spoller]');
       const spollersBlock = spollerTitle.closest('[data-spollers]');
-      const oneSpoller = spollersBlock.hasAttribute('data-one-spoller')
-        ? true
-        : false;
+      const oneSpoller = spollersBlock.hasAttribute('data-one-spoller') ? true : false;
       if (!spollersBlock.querySelectorAll('._slide').length) {
         if (oneSpoller && !spollerTitle.classList.contains('_active')) {
           hideSpollersBody(spollersBlock);
@@ -358,9 +337,7 @@ if (spollersArray.length > 0) {
     }
   }
   function hideSpollersBody(spollersBlock) {
-    const spollerActiveTitle = spollersBlock.querySelector(
-      '[data-spoller]._active'
-    );
+    const spollerActiveTitle = spollersBlock.querySelector('[data-spoller]._active');
     if (spollerActiveTitle) {
       spollerActiveTitle.classList.remove('_active');
       _slideUp(spollerActiveTitle.nextElementSibling, 500);
@@ -516,8 +493,7 @@ function popupClose(popupActive, doUnlock = true) {
 }
 
 function bodyLock() {
-  const lockPaddingValue =
-    window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+  const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 
   if (lockPadding.length > 0) {
     for (let index = 0; index < lockPadding.length; index++) {
@@ -613,3 +589,25 @@ document.addEventListener('keydown', function (e) {
 //     animOnScroll();
 //   }, 1000);
 // }
+
+//sub menu
+document.addEventListener('click', documentActions);
+
+function documentActions(e) {
+  const targetElement = e.target;
+  if (targetElement.closest('[data-parent]')) {
+    const subMenuId = targetElement.dataset.parent ? targetElement.dataset.parent : null;
+    const subMenu = document.querySelector(`[data-submenu="${subMenuId}"]`);
+    const catalogMenu = document.querySelector('.catalog-header');
+
+    if (subMenu) {
+      if (targetElement.classList.contains('._sub-menu-active')) {
+      } else {
+      }
+    } else {
+      console.log('err');
+    }
+
+    e.preventDefault();
+  }
+}
