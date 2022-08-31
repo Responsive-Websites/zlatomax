@@ -5,7 +5,7 @@
   $result: math.div($px, 16) + rem;
   @return $result;
 }
-@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+@mixin adaptiv-value($property, $startSize, $minSize, $type, $minWidth) {
   //Property is a value of property ofc. Example: "margin-top".
   //StartSize is a max size of selected property.
   //MinSize is a min size of selected property
@@ -17,26 +17,29 @@
     #{$property}: $startSize + px;
     @media (max-width: #{$maxWidthContainer + px}) {
       #{$property}: calc(
-        #{$minSize + px} + #{$addSize} *
-          ((100vw - 320px) / #{$maxWidthContainer - 320})
+        #{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidthContainer - $minWidth})
       );
+    }
+    @media (max-width: #{$minWidth + px}) {
+      #{$property}: #{$minSize + px};
     }
   } @else if $type==2 {
     //only if more than main layout size. ($maxWidth value)
     //MinSize is irrelevant, so if screen <= maxWidth -> value is maxSize. If screen > maxWidth -> value grows.
     #{$property}: $startSize + px;
     @media (min-width: #{$maxWidth + px}) {
-      #{$property}: calc(
-        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
-      );
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+    }
+  } @else if $type==3 {
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
     }
   } @else {
     //always
     //start Size value will be on the maxWidth point
     //Start Size value will grow after maxWidth point
     //Min Size value is the min size ofc.
-    #{$property}: calc(
-      #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
-    );
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
   }
 }
