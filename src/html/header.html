@@ -3,7 +3,7 @@
   <div class="header__top top-header">
     <div class="top-header__container _container">
       <nav class="top-header__menu menu-top-header">
-        <ul data-da=".menu__body,992,1" class="menu-top-header__list">
+        <ul data-da=".menu__body,991,1" class="menu-top-header__list">
           <li class="menu-top-header__item menu-top-header__item_catalog">
             <a href="#" class="menu-top-header__link menu-top-header__link_catalog _icon-arrow-bottom"
               >Каталог товаров</a
@@ -24,7 +24,7 @@
         </ul>
       </nav>
 
-      <a href="#" class="top-header__user _icon-user">Личный кабинет</a>
+      <a href="#" class="top-header__user _icon-user"><span>Личный кабинет</span></a>
 
       <ul class="menu">
         <button type="button" class="menu__icon icon-menu">
@@ -45,7 +45,7 @@
       </div>
       <div class="body-header__actions actions-header">
         <a href="#" class="actions-header__location _icon-location"> Москва </a>
-        <div class="actions-header__phones phones-header">
+        <div data-da=".top-header__container,991,0" class="actions-header__phones phones-header">
           <div data-spollers class="phones-header__items">
             <div class="phones-header__item">
               <a href="tel:88007771234" class="phones-header__phone">8-800-777-12-34</a>
@@ -72,8 +72,12 @@
 
           <a href="#callback1" class="phones-header__callback popup-link"> Заказать звонок </a>
         </div>
-        <a href="#" class="actions-header__favorite _icon-favorite"></a>
-        <a href="#" class="actions-header__cart cart-header">
+        <a
+          href="#"
+          data-da=".top-header__container,991,2"
+          class="actions-header__favorite _icon-favorite"
+        ></a>
+        <a data-da=".top-header__container,991,2" href="#" class="actions-header__cart cart-header">
           <div class="cart-header__icon _icon-cart">
             <span>0</span>
           </div>
