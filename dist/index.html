@@ -49,7 +49,7 @@
   <div class="header__body body-header">
     <div class="body-header__container _container">
       <a href="" class="body-header__logo _icon-logo"></a>
-      <div class="body-header__search">
+      <div data-da=".catalog-header__container,480,1" class="body-header__search">
         <form action="#" class="search-header">
           <button type="submit" class="search-header__button _icon-search"></button>
           <input placeholder="Поиск" type="text" class="search-header__input" />
@@ -60,7 +60,7 @@
         <div data-da=".top-header__container,991,0" class="actions-header__phones phones-header">
           <div data-spollers class="phones-header__items">
             <div class="phones-header__item">
-              <a href="tel:88007771234" class="phones-header__phone">8-800-777-12-34</a>
+              <a href="tel:88007771234" class="phones-header__phone"><span>8-800-777-12-34</span></a>
               <button type="button" data-spoller class="phones-header__arrow _icon-arrow-bottom"></button>
               <ul class="phones-header__list">
                 <li>
@@ -104,6 +104,7 @@
   <div class="header__catalog catalog-header">
     <div class="catalog-header__container _container">
       <nav class="catalog-header__menu menu-catalog">
+        <button type="button" class="menu-catalog__back _icon-back">Назад</button>
         <ul class="menu-catalog__list">
           <li class="menu-catalog__item">
             <button data-parent="1" class="menu-catalog__link">Каталог Ножей</button>
@@ -122,6 +123,7 @@
           </li>
         </ul>
         <div class="menu-catalog__sub-menu sub-menu-catalog">
+          <button type="button" class="sub-menu-catalog__back _icon-back">Назад</button>
           <div class="sub-menu-catalog__container _container">
             <div hidden data-submenu="1" class="sub-menu-catalog__block">
               <div class="sub-menu-catalog__category">

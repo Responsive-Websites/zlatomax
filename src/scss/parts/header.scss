@@ -21,12 +21,18 @@
     align-items: center;
     gap: rem(20);
     min-height: rem(50);
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      gap: rem(30);
+    }
   }
   &__menu {
     flex: 1 1 auto;
   }
 
   &__user {
+    position: relative;
+    z-index: 5;
     display: inline-flex;
     align-items: center;
     font-weight: 600;
@@ -64,7 +70,7 @@
 
     @media screen and (max-width: calc($tablet - 1px)) {
       flex-direction: column;
-      row-gap: rem(15);
+      row-gap: rem(25);
     }
   }
 
@@ -92,7 +98,8 @@
       display: flex;
       flex-flow: row-reverse nowrap;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
+
       &::before {
         font-size: rem(8);
         transform: rotate(-90deg);
@@ -100,7 +107,7 @@
     }
 
     @media screen and (max-width: calc($tablet - 1px)) {
-      @include adaptiv-value('font-size', 30, 18, 4, 320, 991);
+      @include adaptiv-value('font-size', 30, 20, 4, 320, 991);
     }
   }
   @media screen and (max-width: calc($tablet - 1px)) {
@@ -126,8 +133,27 @@
       left: -100%;
       overflow: auto;
       background-color: $color-dark;
-      padding: rem(80) rem(15) rem(50) rem(15);
+      padding: rem(100) rem(15) rem(50) rem(15);
       z-index: 4;
+      transition: left 0.3s ease-in 0s;
+
+      &:before {
+        content: '';
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        height: 70px;
+        left: -100%;
+        top: 0;
+
+        background-color: $color-dark;
+      }
+      &._active {
+        left: 0;
+        &::before {
+          left: 0;
+        }
+      }
     }
   }
 }
@@ -136,11 +162,11 @@
 .icon-menu {
   background-color: transparent;
   position: relative;
-  width: 30px;
+  width: 40px;
 
-  height: 18px;
+  height: 22px;
   cursor: pointer;
-  z-index: 5;
+  z-index: 10;
 
   span,
   &::before,
@@ -203,9 +229,13 @@
 
   &__search {
     flex: 1 1 auto;
-    @include adaptiv-value('padding-left', 158, 20, 1, 1250, 0);
+
     @media screen and (min-width: $tablet) {
       padding-right: rem(20);
+    }
+
+    @media screen and (min-width: calc($mobileSmall + 1px)) {
+      @include adaptiv-value('padding-left', 158, 20, 1, 1250, 0);
     }
   }
 
@@ -286,6 +316,8 @@
   }
 
   &__favorite {
+    position: relative;
+    z-index: 5;
     &::before {
       font-size: rem(27);
     }
@@ -296,6 +328,8 @@
 }
 
 .phones-header {
+  position: relative;
+  z-index: 5;
   &__items {
   }
 
@@ -308,12 +342,24 @@
     font-weight: 600;
     line-height: math.div(22, 18);
     white-space: nowrap;
+    &::before {
+      @extend ._ic;
+      @extend ._icon-footer-phone;
+      display: none;
+    }
     @media screen and (max-width: calc($tablet - 1px)) {
-      font-size: rem(20);
+      font-size: rem(25);
+    }
+    @media screen and (max-width: $mobileSmall) {
+      &::before {
+        display: block;
+        font-size: rem(32);
+      }
+      & span {
+        display: none;
+      }
     }
   }
-
-  //5:25:50
 
   &__arrow {
     color: $color-orange;
@@ -387,7 +433,8 @@
   display: flex;
   align-items: center;
   column-gap: rem(15);
-
+  position: relative;
+  z-index: 5;
   @media screen and (min-width: $mobileSmall) {
     &:hover {
       .cart-header__link {
@@ -459,27 +506,57 @@
 
   &__menu {
   }
+
+  @media screen and (max-width: $mobileSmall) {
+    padding: rem(20) 0px;
+  }
 }
 
 .menu-catalog {
+  @media screen and (max-width: calc($tablet - 1px)) {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $color-dark;
+    padding: rem(25) rem(15) rem(50) rem(15);
+    transition: left 0.3s ease 0s;
+
+    .catalog-open & {
+      left: 0;
+      z-index: 6;
+    }
+  }
   &__list {
     display: flex;
-    gap: rem(10);
+    column-gap: rem(10);
     justify-content: space-between;
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      flex-direction: column;
+      row-gap: rem(25);
+    }
   }
 
   &__item {
   }
 
   &__link {
-    min-height: rem(70);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0px rem(10);
+
     position: relative;
     color: $color-white;
+
+    @media screen and (min-width: $tablet) {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: rem(70);
+      padding: 0px rem(10);
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -516,6 +593,9 @@
         visibility: visible;
       }
     }
+    @media screen and (max-width: calc($tablet - 1px)) {
+      @include adaptiv-value('font-size', 30, 20, 4, 320, 991);
+    }
   }
 
   &__sub-menu {
@@ -525,8 +605,58 @@
 
     background-color: $color-dark;
   }
+
+  &__back {
+    display: none;
+    color: inherit;
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      display: inline-flex;
+      align-items: center;
+
+      @include adaptiv-value('font-size', 30, 20, 4, 320, 991);
+      margin-bottom: rem(65);
+
+      &::before {
+        margin-right: rem(13);
+      }
+    }
+  }
 }
 .sub-menu-catalog {
+  @media screen and (max-width: calc($tablet - 1px)) {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $color-dark;
+    padding: rem(25) rem(15) rem(50) rem(15);
+    transition: left 0.3s ease 0s;
+
+    .sub-menu-open & {
+      display: block;
+      left: 0;
+      z-index: 6;
+    }
+  }
+  &__back {
+    display: none;
+    color: inherit;
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      display: inline-flex;
+      align-items: center;
+
+      @include adaptiv-value('font-size', 30, 20, 4, 320, 991);
+      margin-bottom: rem(65);
+
+      &::before {
+        margin-right: rem(13);
+      }
+    }
+  }
   &__block {
     display: none;
 
@@ -538,6 +668,10 @@
     }
     &._sub-menu-open {
       display: grid;
+
+      @media screen and (max-width: calc($tablet - 1px)) {
+        display: block;
+      }
     }
   }
   &__container {

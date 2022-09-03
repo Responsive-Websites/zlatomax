@@ -10,7 +10,24 @@ let burger_icon = document.querySelector('.icon-menu');
 burger_icon.addEventListener('click', function (e) {
   header_menu.classList.toggle('_active');
   burger_icon.classList.toggle('_active');
+
   document.body.classList.toggle('_lock');
+
+  if (
+    !burger_icon.classList.contains('_active') &&
+    document.documentElement.classList.contains('catalog-open')
+  ) {
+    document.documentElement.classList.remove('catalog-open');
+  }
+
+  if (
+    !burger_icon.classList.contains('_active') &&
+    document.documentElement.classList.contains('sub-menu-open')
+  ) {
+    document.documentElement.classList.remove('sub-menu-open');
+  }
+
+  //6:15:00
 });
 
 // =========================================================
@@ -605,20 +622,50 @@ function documentActions(e) {
   if (targetElement.closest('[data-parent]')) {
     const subMenuId = targetElement.dataset.parent ? targetElement.dataset.parent : null;
     const subMenu = document.querySelector(`[data-submenu="${subMenuId}"]`);
-    const catalogMenu = document.querySelector('.catalog-header');
 
     if (subMenu) {
       const activeLink = document.querySelector('._sub-menu-active');
       const activeBlock = document.querySelector('._sub-menu-open');
+
       if (activeLink && activeLink !== targetElement) {
         activeLink.classList.remove('_sub-menu-active');
         activeBlock.classList.remove('_sub-menu-open');
+        document.documentElement.classList.remove('sub-menu-open');
       }
+      document.documentElement.classList.toggle('sub-menu-open');
       targetElement.classList.toggle('_sub-menu-active');
       subMenu.classList.toggle('_sub-menu-open');
     } else {
       console.log('err');
     }
+
+    e.preventDefault();
+  }
+
+  if (targetElement.closest('.menu-top-header__link_catalog')) {
+    document.documentElement.classList.add('catalog-open');
+    e.preventDefault();
+  }
+  if (targetElement.closest('.menu-catalog__back')) {
+    document.documentElement.classList.remove('catalog-open');
+
+    document.querySelector('._sub-menu-active')
+      ? document.querySelector.classList.remove('_sub-menu-active')
+      : null;
+    document.querySelector('._sub-menu-open')
+      ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open')
+      : null;
+
+    e.preventDefault();
+  }
+  if (targetElement.closest('.sub-menu-catalog__back')) {
+    document.documentElement.classList.remove('sub-menu-open');
+    document.querySelector('._sub-menu-active')
+      ? document.querySelector.classList.remove('_sub-menu-active')
+      : null;
+    document.querySelector('._sub-menu-open')
+      ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open')
+      : null;
 
     e.preventDefault();
   }

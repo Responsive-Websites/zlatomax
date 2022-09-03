@@ -2,8 +2,7 @@
   font-family: 'icons';
   src: url('../fonts/icons.eot?6j34yt');
   src: url('../fonts/icons.eot?6j34yt#iefix') format('embedded-opentype'),
-    url('../fonts/icons.ttf?6j34yt') format('truetype'),
-    url('../fonts/icons.woff?6j34yt') format('woff'),
+    url('../fonts/icons.ttf?6j34yt') format('truetype'), url('../fonts/icons.woff?6j34yt') format('woff'),
     url('../fonts/icons.svg?6j34yt#icons') format('svg');
   font-weight: normal;
   font-style: normal;
@@ -11,7 +10,8 @@
 }
 
 [class^='_icon-']::before,
-[class*=' _icon-']::before {
+[class*=' _icon-']::before,
+._ic {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icons' !important;
   speak: never;
@@ -67,4 +67,8 @@
 }
 ._icon-user:before {
   content: '\e90d';
+}
+._icon-back:before {
+  content: '\e90e';
+  color: #fff;
 }
