@@ -548,6 +548,24 @@
 
     position: relative;
     color: $color-white;
+    &[data-parent] {
+      &::before {
+        @extend ._ic;
+        @extend ._icon-arrow-bottom;
+        display: none;
+        @media screen and (max-width: calc($tablet - 1px)) {
+          display: block;
+          transform: rotate(-90deg);
+          font-size: rem(10);
+        }
+      }
+      @media screen and (max-width: calc($tablet - 1px)) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    }
 
     @media screen and (min-width: $tablet) {
       align-items: center;
@@ -573,7 +591,7 @@
       transition: opacity 1s ease 0s;
     }
 
-    @media screen and (min-width: $mobileSmall) {
+    @media screen and (min-width: $tablet) {
       transition: color 0.3s ease 0s;
       &:hover {
         color: $color-orange;
@@ -586,11 +604,13 @@
     }
 
     &._sub-menu-active {
-      color: $color-orange;
+      @media screen and (min-width: $tablet) {
+        color: $color-orange;
 
-      &::after {
-        opacity: 1;
-        visibility: visible;
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
       }
     }
     @media screen and (max-width: calc($tablet - 1px)) {
@@ -681,8 +701,16 @@
   &__category {
     font-size: rem(16);
     line-height: math.div(20, 16);
-    font-weight: 700;
-    padding: rem(30) rem(15) rem(30) rem(0);
+
+    @media screen and (min-width: $tablet) {
+      font-weight: 700;
+      padding: rem(30) rem(15) rem(30) rem(0);
+    }
+    @media screen and (max-width: calc($tablet - 1px)) {
+      &:not(:last-child) {
+        margin-bottom: rem(25);
+      }
+    }
   }
   &__link-category {
     display: inline-block;
@@ -690,6 +718,9 @@
       &:hover {
         text-decoration: underline;
       }
+    }
+    @media screen and (max-width: calc($tablet - 1px)) {
+      @include adaptiv-value('font-size', 30, 20, 4, 320, 991);
     }
   }
   &__list {
@@ -700,6 +731,10 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding: rem(30) rem(15) rem(30) rem(0);
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      display: none;
+    }
   }
 
   &__item {
@@ -717,6 +752,10 @@
   }
   &__footer {
     padding: rem(30) rem(15) rem(30) rem(0);
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      display: none;
+    }
   }
   &__all {
     font-size: rem(16);
