@@ -1,0 +1,179 @@
+@use 'sass:math';
+
+// main block styles
+.main-block {
+  background: url('../../img/main-page/main-block/bg.png') center / cover no-repeat;
+  @include adaptiv-value('padding-top', 40, 20, 1, 320, 0);
+  @include adaptiv-value('padding-bottom', 60, 20, 1, 320, 0);
+  &__container {
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr percent(635, 1600);
+  }
+
+  &__slider {
+  }
+
+  &__swiper {
+  }
+
+  &__slide {
+  }
+
+  &__media {
+  }
+
+  &__advantages {
+  }
+}
+
+.slide-main-block {
+  &__content {
+    color: $color-white;
+    padding: 0px rem(40) 0px 0px;
+    &:not(:last-child) {
+      @include adaptiv-value('margin-bottom', 60, 30, 1, 320, 0);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: rem(36);
+    line-height: math.div(46, 36);
+
+    &:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+  }
+
+  &__sub-title {
+    font-size: rem(36);
+    line-height: math.div(46, 36);
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__text {
+    opacity: 0.7;
+    font-size: rem(20);
+    line-height: math.div(30, 20);
+  }
+
+  &__button {
+  }
+}
+
+.media-main-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(15);
+
+  &__body {
+    position: relative;
+  }
+  &__image {
+    &::before {
+      position: absolute;
+
+      content: '';
+      width: rem(423);
+      height: rem(423);
+      border: rem(2) solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      bottom: 3.5%;
+      right: 0px;
+      transform: translate(percent(131, 423), 0px);
+    }
+
+    img {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__tips {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+
+  &__tip {
+    width: rem(20);
+    height: rem(20);
+    position: absolute;
+
+    transition: transform 0.3s ease 0s;
+    @media screen and (min-width: $mobile) {
+      &:hover {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      border-radius: 50%;
+      background-color: $color-orange;
+
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      transform: scale(1.6);
+      opacity: 0.5;
+    }
+    span {
+      pointer-events: none;
+      position: relative;
+      z-index: 2;
+      color: $color-white;
+      font-weight: 600;
+      font-size: rem(20);
+
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &_1 {
+      top: percent(186, 500);
+      left: percent(72, 447);
+    }
+
+    &_2 {
+      top: percent(57, 500);
+      right: percent(13, 447);
+    }
+
+    &_3 {
+      bottom: percent(115, 500);
+      right: percent(28, 447);
+    }
+  }
+}
+.advantages-main {
+  &__item {
+  }
+
+  &__icon {
+  }
+
+  &__text {
+  }
+}
+// ==================================

@@ -671,3 +671,22 @@ function documentActions(e) {
     e.preventDefault();
   }
 }
+
+// Slider
+const swiper = new Swiper('.main-block__slider', {
+  modules: [Navigation, Pagination],
+
+  observer: true,
+  observeParents: true,
+  slidesPerView: 1,
+
+  autoHeight: true,
+  speed: 800,
+
+  pagination: {
+    el: '.controll-main-block__dotts',
+    clickable: true,
+  },
+});
+
+//1:06:10

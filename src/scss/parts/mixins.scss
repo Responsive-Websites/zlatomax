@@ -55,3 +55,8 @@
     #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
   }
 }
+
+@function percent($value, $container) {
+  $result: math.div($value, $container) * 100;
+  @return #{$result + '%'};
+}
