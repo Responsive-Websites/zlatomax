@@ -5,6 +5,12 @@
   $result: math.div($px, 16) + rem;
   @return $result;
 }
+
+@function em($px, $value) {
+  $result: math.div($px, $value) + em;
+  @return $result;
+}
+
 @mixin adaptiv-value($property, $startSize, $minSize, $type, $minWidthMod, $maxWidthMod) {
   //Property is a value of property ofc. Example: "margin-top".
   //StartSize is a max size of selected property.
