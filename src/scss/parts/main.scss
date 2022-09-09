@@ -3,8 +3,8 @@
 // main block styles
 .main-block {
   background: url('../../img/main-page/main-block/bg.png') center / cover no-repeat;
-  @include adaptiv-value('padding-top', 40, 20, 1, 320, 0);
-  @include adaptiv-value('padding-bottom', 60, 20, 1, 320, 0);
+  padding-top: rem(40);
+  @include adaptiv-value('padding-bottom', 60, 40, 1, 320, 0);
   &__container {
   }
 
@@ -306,4 +306,132 @@
     line-height: math.div(32, 20);
   }
 }
+// ==================================
+
+//item catalog cards block
+
+.catalog-cards {
+  @include adaptiv-value('padding-top', 100, 40, 1, 320, 0);
+  @include adaptiv-value('padding-bottom', 70, 40, 1, 320, 0);
+  &__container {
+    display: grid;
+    gap: rem(30);
+
+    @media screen and (min-width: $mobileSmall) {
+      grid-template-columns: repeat(auto-fit, minmax(rem(440), 1fr));
+    }
+  }
+
+  &__item {
+  }
+}
+.item-catalog-cards {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+
+  min-height: rem(290);
+  overflow: hidden;
+
+  @media screen and (min-width: $mobileSmall) {
+    transition: box-shadow 0.3s ease 0s;
+
+    &:hover {
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &__body {
+    position: relative;
+    z-index: 2;
+
+    @include adaptiv-value('padding', 30, 20, 1, 320, 0);
+    @media screen and (max-width: calc($mobileSmall - 1px)) {
+      &:not(:last-child) {
+        margin-bottom: rem(20);
+      }
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: em(30, 24);
+    }
+  }
+
+  &__link-title {
+    font-weight: 600;
+    font-size: rem(24);
+    line-height: math.div(32, 24);
+    display: inline-block;
+    &::after {
+      content: '';
+      display: block;
+      width: rem(70);
+      height: rem(2);
+      background-color: $color-orange;
+      transition: width 0.8s ease 0s;
+      margin: rem(15) 0px 0px 0px;
+    }
+    @media screen and (min-width: $mobileSmall) {
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__list {
+  }
+
+  &__item {
+    position: relative;
+    padding-left: rem(20);
+    &::before {
+      content: '';
+      display: block;
+      width: rem(6);
+      height: rem(6);
+      background-color: $color-orange;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: em(9, 18);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__link {
+    font-size: rem(18);
+    line-height: math.div(24, 18);
+    @media screen and (min-width: $mobileSmall) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__image {
+    text-align: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    transform: translate(0px, 9%);
+    img {
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: $mobileSmall) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
 // ==================================
