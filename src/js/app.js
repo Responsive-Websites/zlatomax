@@ -672,8 +672,8 @@ function documentActions(e) {
   }
 }
 
-// Slider
-const swiper = new Swiper('.main-block__slider', {
+// Sliders
+const swiperMainBlock = new Swiper('.main-block__slider', {
   observer: true,
   observeParents: true,
   slidesPerView: 1,
@@ -703,4 +703,80 @@ const swiper = new Swiper('.main-block__slider', {
   },
 });
 
-//1:06:10
+//3:28:00
+
+const swiperProduct = new Swiper('.products-slider__slider', {
+  observer: true,
+  observeParents: true,
+  slidesPerView: 4,
+  spaceBetween: 30,
+  speed: 800,
+  autoHeight: true,
+  watchOverflow: true,
+  loop: true,
+  pagination: {
+    el: '.products-slider__dotts',
+    clickable: true,
+  },
+});
+
+//rating
+const ratings = document.querySelectorAll('.rating');
+
+if (ratings.length > 0) {
+  initRatings();
+}
+
+function initRatings() {
+  let ratingActive, ratingValue;
+
+  for (let index = 0; index < ratings.length; index++) {
+    const rating = ratings[index];
+    initRating(rating);
+  }
+
+  function initRating(rating) {
+    initRatingVars(rating);
+    setRatingActiveWidth();
+
+    if (rating.classList.contains('_rating_set')) {
+      setRating(rating);
+    }
+  }
+
+  function initRatingVars(rating) {
+    ratingActive = rating.querySelector('.rating__active');
+    ratingValue = rating.querySelector('.rating__value');
+  }
+  function setRatingActiveWidth(index = ratingValue.innerHTML) {
+    const ratingActiveWidth = index / 0.05;
+    ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+  function setRating(rating) {
+    const ratingItems = rating.querySelectorAll('.rating__item');
+
+    for (let index = 0; index < ratingItems.length; index++) {
+      const ratingItem = ratingItems[index];
+
+      ratingItem.addEventListener('mouseenter', function (e) {
+        initRatingVars(rating);
+        setRatingActiveWidth(ratingItem.value);
+      });
+
+      ratingItem.addEventListener('mouseleave', function (e) {
+        setRatingActiveWidth();
+      });
+
+      ratingItem.addEventListener('click', function (e) {
+        initRatingVars(rating);
+
+        if (rating.dataset.ajax) {
+          setRatingValue(ratingItem.value, rating);
+        } else {
+          ratingValue.innerHTML = index + 1;
+          setRatingActiveWidth();
+        }
+      });
+    }
+  }
+}
