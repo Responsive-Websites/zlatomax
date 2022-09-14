@@ -703,20 +703,45 @@ const swiperMainBlock = new Swiper('.main-block__slider', {
   },
 });
 
-//3:28:00
-
 const swiperProduct = new Swiper('.products-slider__slider', {
   observer: true,
   observeParents: true,
-  slidesPerView: 4,
-  spaceBetween: 30,
+
   speed: 800,
   autoHeight: true,
   watchOverflow: true,
-  loop: true,
+
   pagination: {
     el: '.products-slider__dotts',
     clickable: true,
+    dynamicBullets: true,
+  },
+  autoplay: {
+    delay: 3000,
+  },
+  // on: {
+  //   init: function (swiper) {
+
+  //   }
+  // }
+
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1040: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1410: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
   },
 });
 

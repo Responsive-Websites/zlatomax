@@ -1565,6 +1565,37 @@ main {
   }
 }
 
+.hits-products {
+  padding-top: 50px;
+  padding-bottom: 120px;
+}
+@media (max-width: 1620px) {
+  .hits-products {
+    padding-top: calc(
+        40px + 10 *
+          ((100vw - 320px) / 1300)
+      );
+  }
+}
+@media (max-width: 320px) {
+  .hits-products {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 1620px) {
+  .hits-products {
+    padding-bottom: calc(
+        40px + 80 *
+          ((100vw - 320px) / 1300)
+      );
+  }
+}
+@media (max-width: 320px) {
+  .hits-products {
+    padding-bottom: 40px;
+  }
+}
+
 .popup {
   position: fixed;
   width: 100%;
@@ -1662,11 +1693,65 @@ main {
   }
 }
 .products-slider__slider {
-  padding: 0.9375rem;
-  margin: 0px -0.9375rem;
+  padding: 0.9375rem 1.25rem;
+  margin: 0px -1.25rem;
+}
+.products-slider__swiper:not(:last-child) {
+  margin-bottom: 3.125rem;
 }
 .products-slider__slide.swiper-slide {
   height: 100%;
+}
+.products-slider__dotts {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  text-align: start !important;
+  transform: translate(0px, 20%);
+  margin: 0 auto !important;
+  overflow: hidden !important;
+}
+.products-slider__dotts .swiper-pagination-bullet {
+  border-radius: 0px;
+  margin: 0px 0.46875rem !important;
+  opacity: 1;
+  height: 1.875rem !important;
+  width: 1.125rem !important;
+  position: relative;
+  background-color: transparent;
+  transition: all 0.3s linear 0s;
+}
+.products-slider__dotts .swiper-pagination-bullet::after {
+  content: "";
+  height: 0.125rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(0px, -50%);
+  width: 100%;
+  background: #898989;
+}
+.products-slider__dotts .swiper-pagination-bullet:before {
+  content: "";
+  position: absolute;
+  background-color: #e8aa31;
+  width: 0.625rem;
+  height: 0.625rem;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: left 3.5s linear 0s;
+}
+.products-slider__dotts .swiper-pagination-bullet-active {
+  width: 1.875rem !important;
+}
+.products-slider__dotts .swiper-pagination-bullet-active::after {
+  background-color: #e8aa31;
+}
+.products-slider__dotts .swiper-pagination-bullet-active::before {
+  opacity: 1;
+  left: 1.25rem;
 }
 
 .product-card {
@@ -1818,6 +1903,10 @@ main {
   gap: 0.625rem;
   font-size: 1rem;
 }
+.info-product-card__materials {
+  text-align: right;
+}
+
 .rating {
   display: flex;
   align-items: flex-end;

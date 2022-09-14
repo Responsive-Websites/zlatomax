@@ -435,3 +435,7 @@
 }
 
 // ==================================
+.hits-products {
+  @include adaptiv-value('padding-top', 50, 40, 1, 320, 0);
+  @include adaptiv-value('padding-bottom', 120, 40, 1, 320, 0);
+}
