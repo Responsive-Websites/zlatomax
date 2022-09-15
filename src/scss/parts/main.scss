@@ -439,3 +439,25 @@
   @include adaptiv-value('padding-top', 50, 40, 1, 320, 0);
   @include adaptiv-value('padding-bottom', 120, 40, 1, 320, 0);
 }
+
+.link-arrow {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  color: $color-orange;
+  font-size: rem(20);
+  font-weight: 600;
+
+  &::before {
+    margin-left: em(20, 20);
+    transform: rotate(-90deg);
+    font-size: rem(8);
+  }
+  @media screen and (min-width: $mobileSmall) {
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}

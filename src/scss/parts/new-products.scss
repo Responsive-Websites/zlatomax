@@ -1,0 +1,75 @@
+@use 'sass:math';
+.products-new {
+  padding-top: rem(45);
+  background: url('../../img/new-products/bg.jpg') bottom / cover no-repeat;
+  position: relative;
+  &::before {
+    content: '';
+    background-color: #fff;
+    height: 45px;
+
+    //4:35:00
+  }
+
+  &__inner {
+    @include adaptiv-value('padding-top', 55, 20, 1, 320, 0);
+    @include adaptiv-value('padding-bottom', 55, 20, 1, 320, 0);
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: percent(400, 1600) 1fr;
+  }
+
+  &__body {
+    @include adaptiv-value('padding-right', 70, 30, 1, 320, 0);
+  }
+  &__section {
+    position: relative;
+    z-index: 2;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: rem(30);
+    line-height: math.div(46, 30);
+    color: $color-white;
+    &:not(:last-child) {
+      margin-bottom: em(30, 30);
+    }
+  }
+
+  &__text {
+    line-height: math.div(27, 18);
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.7);
+
+    &:not(:last-child) {
+      @include adaptiv-value('margin-bottom', 60, 20, 1, 320, 0);
+    }
+  }
+
+  &__link {
+  }
+  &__content {
+    min-width: 0px !important;
+    padding-top: rem(37);
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  &__slider {
+  }
+
+  &__swiper {
+    &:not(:last-child) {
+      margin-bottom: rem(50);
+    }
+  }
+
+  &__slide {
+    &.swiper-slide {
+      height: 100% !important;
+    }
+  }
+  &__dotts {
+    bottom: 0px !important;
+  }
+}

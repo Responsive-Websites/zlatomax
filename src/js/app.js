@@ -745,6 +745,41 @@ const swiperProduct = new Swiper('.products-slider__slider', {
   },
 });
 
+const swiperNewProduct = new Swiper('.products-new__slider', {
+  observer: true,
+  observeParents: true,
+  slidesPerView: 3,
+  watchOverflow: true,
+  autoHeight: true,
+  speed: 800,
+  autoplay: {
+    delay: 3000,
+  },
+  pagination: {
+    el: '.products-new__dotts',
+    clickable: true,
+    dynamicBullets: true,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1040: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1410: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
+});
+
 //rating
 const ratings = document.querySelectorAll('.rating');
 

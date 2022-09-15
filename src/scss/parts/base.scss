@@ -81,3 +81,60 @@ main {
     }
   }
 }
+.dotts {
+  display: grid;
+  grid-auto-flow: column;
+
+  justify-content: center;
+  text-align: start !important;
+  // transform: translate(0px, 20%);
+  margin: 0 auto !important;
+  overflow: hidden !important;
+  .swiper-pagination-bullet {
+    border-radius: 0px;
+    margin: 0px rem(7.5) !important;
+    opacity: 1;
+    height: rem(30) !important;
+    width: rem(18) !important;
+    position: relative;
+    background-color: transparent;
+    transition: all 0.3s linear 0s;
+    &::after {
+      content: '';
+      height: rem(2);
+
+      position: absolute;
+      top: 50%;
+      transform: translate(0px, -50%);
+      width: 100%;
+
+      background: #898989;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      background-color: $color-orange;
+      width: rem(10);
+      height: rem(10);
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      border-radius: 50%;
+      opacity: 0;
+
+      transition: left 3.5s linear 0s;
+    }
+  }
+  .swiper-pagination-bullet-active {
+    width: rem(30) !important;
+
+    &::after {
+      background-color: $color-orange;
+    }
+    &::before {
+      opacity: 1;
+      left: rem(20);
+    }
+  }
+}
