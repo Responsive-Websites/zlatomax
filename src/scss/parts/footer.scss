@@ -1,6 +1,7 @@
 @use 'sass:math';
 //footer
 .footer {
+  background-color: $color-dark;
   &__text {
   }
 
@@ -37,5 +38,81 @@
 }
 
 .body-footer {
-  background-color: $color-dark;
+  display: grid;
+  @include adaptiv-value('gap', 35, 15, 1, 320, 0);
+  @include adaptiv-value('padding-top', 100, 40, 1, 320, 0);
+  @include adaptiv-value('padding-bottom', 50, 40, 1, 320, 0);
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(rem(290), 1fr));
+    column-gap: rem(40);
+    @include adaptiv-value('row-gap', 40, 20, 1, 320, 0);
+    &:not(:last-child) {
+      padding-bottom: rem(30);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-footer {
+  &__spoller {
+  }
+}
+.spoller-item-footer {
+  &__item {
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $color-white;
+    font-weight: 600;
+    line-height: math.div(22, 18);
+
+    &:not(:last-child) {
+      margin-bottom: em(26, 18);
+    }
+
+    ._init & {
+      display: flex;
+
+      justify-content: space-between;
+      gap: rem(10);
+      width: 100%;
+      &::after {
+        content: '\e900';
+        @extend ._ic;
+        font-size: rem(8);
+        margin-top: em(6, 8);
+        transition: transform 0.3s ease 0s;
+      }
+    }
+    &._active {
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &__body {
+    @include adaptiv-value('padding-top', 30, 20, 1, 320, 0);
+    @include adaptiv-value('padding-bottom', 30, 20, 1, 320, 0);
+  }
+}
+.menu-footer {
+  &__list {
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: em(20, 18);
+    }
+  }
+
+  &__link {
+    line-height: math.div(27, 18);
+    color: rgba(255, 255, 255, 0.8);
+  }
 }
