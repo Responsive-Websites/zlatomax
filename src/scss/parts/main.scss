@@ -434,7 +434,7 @@
   }
 }
 
-// ==================================
+//main styles for cards
 .hits-products {
   @include adaptiv-value('padding-top', 50, 40, 1, 320, 0);
   @include adaptiv-value('padding-bottom', 120, 40, 1, 320, 0);
@@ -461,3 +461,48 @@
     }
   }
 }
+
+.sale-products {
+  @include adaptiv-value('padding-top', 120, 40, 1, 320, 0);
+  @include adaptiv-value('padding-bottom', 120, 40, 1, 320, 0);
+  &_no-bottom {
+    padding-bottom: 0px;
+  }
+}
+// ===================================
+
+//articles styles
+
+.articles-module {
+  &__container {
+  }
+
+  &__title {
+  }
+
+  &__items {
+  }
+
+  &__item {
+  }
+}
+
+.item-article {
+  &__image {
+  }
+
+  &__body {
+  }
+
+  &__title {
+  }
+
+  &__link-title {
+  }
+
+  &__date {
+  }
+}
+
+//4:52:00
+//===================================

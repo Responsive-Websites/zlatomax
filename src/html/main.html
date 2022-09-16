@@ -246,4 +246,38 @@
   <section class="page__new-products new-products">
     @@include('_new-products.html', {"title": "Новинки"})
   </section>
+  <section class="page__sale-products sale-products sale-products_no-bottom">
+    @@include('_products-slider.html', {"title": "Акции", "moretext": "Все акции" })
+  </section>
+  <section class="page__sale-products sale-products">
+    @@include('_products-slider.html', {"title": "Акции", "moretext": "Все акции" })
+  </section>
+  <section class="page__new-products new-products new-products_no-top">
+    @@include('_new-products.html', {"title": "Новинки"})
+  </section>
+  <section class="page__sale-products sale-products sale-products_no-bottom">
+    @@include('_products-slider.html', {"title": "Акции", "moretext": "Все акции" })
+  </section>
+  <section class="page__sale-products sale-products">
+    @@include('_products-slider.html', {"title": "Акции", "moretext": "Все акции" })
+  </section>
+
+  <section class="page__articles-module articles-module">
+    <div class="articles-module__container _container">
+      <h2 class="articles-module__title">Наши статьи</h2>
+      <div class="articles-module__items">
+        <article class="articles-module__item item-article">
+          <a href="#" class="item-article__image _ibg">
+            <img src="@img/articles-module/1.jpg" alt="Картинка" />
+          </a>
+          <div class="item-article__body">
+            <h4 class="item-article__title">
+              <a href="#" class="item-article__link-title"> Все о ножах: как правильно выбрать </a>
+            </h4>
+            <div class="item-article__date">24.07.2019</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 </main>
