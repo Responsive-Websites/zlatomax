@@ -1,1 +1,41 @@
+@use 'sass:math';
 //footer
+.footer {
+  &__text {
+  }
+
+  &__container {
+  }
+
+  &__body {
+  }
+}
+.text-footer {
+  @include adaptiv-value('padding-top', 60, 40, 1, 320, 0);
+  @include adaptiv-value('padding-bottom', 60, 40, 1, 320, 0);
+  background: url('../../img/footer/bg.jpg') top / cover no-repeat;
+  &__container {
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 700;
+
+    line-height: math.div(46, 30);
+    color: $color-orange;
+    @include adaptiv-value('font-size', 30, 24, 1, 320, 0);
+    &:not(:last-child) {
+      margin-bottom: em(30, 30);
+    }
+  }
+
+  &__text {
+    color: $color-white;
+    line-height: math.div(27, 18);
+    @include adaptiv-value('font-size', 18, 16, 1, 320, 0);
+  }
+}
+
+.body-footer {
+  background-color: $color-dark;
+}
