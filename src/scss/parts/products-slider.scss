@@ -86,8 +86,10 @@
     top: rem(20);
     left: rem(0);
     color: $color-white;
-
-    //6:43:00
+    background-color: $color-orange;
+    padding: rem(6) rem(22);
+    z-index: 2;
+    pointer-events: none;
   }
   &__image {
     @include adaptiv-value('padding-top', 25, 15, 1, 320, 0);

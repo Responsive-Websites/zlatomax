@@ -8,7 +8,6 @@
     "dev": "gulp",
     "build": "gulp build --build",
     "zip": "gulp deployZIP --build"
-
   },
   "repository": {
     "type": "git",
@@ -43,5 +42,8 @@
     "sass": "^1.50.0",
     "webpack": "^5.72.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "nouislider": "^15.6.1"
   }
 }

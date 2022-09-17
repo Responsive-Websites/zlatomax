@@ -406,7 +406,21 @@
   <div class="catalog">
     <div class="catalog__container _container">
       <div class="catalog__body">
-        <div class="catalog__filter"></div>
+        <div class="catalog__filter filter-catalog">
+          <div class="filter-catalog__title">Фильтр товаров</div>
+          <div data-spollers class="filter-catalog__items">
+            <div class="filter-catalog__price price-filter">
+              <button data-spoller class="price-filter__title _icon-spoller-arrow">Цена</button>
+              <div data-range class="price-filter__body">
+                <div class="price-filter__inputs">
+                  <input data-range-from="0" value="500" type="text" class="price-filter__input" />
+                  <input data-range-to="5000" value="1000" type="text" class="price-filter__input" />
+                </div>
+                <div data-range-item class="price-filter__range"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="catalog__content">
           <div class="catalog__control">
             <select class="control">
@@ -448,7 +462,7 @@
                   <div class="rating__info">12 отзывов</div>
                 </div>
                 <div class="product-card__footer">
-                  <div class="product-card__price">2 719 р.</div>
+                  <div class="product-card__price">2 119 р.</div>
                   <a href="#" class="product-card__compare _icon-compare"></a>
                   <a href="#" class="product-card__favorite _icon-favorite"></a>
                 </div>
