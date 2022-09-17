@@ -51,6 +51,17 @@ main {
 .page {
   &_home {
   }
+  &_inner {
+    padding-top: rem(30);
+  }
+
+  //===========================
+
+  &__header {
+    margin-bottom: rem(30);
+  }
+  &__container {
+  }
 
   &__main-block {
   }
@@ -82,6 +93,18 @@ main {
     &:hover {
       background-color: $color-orange-mod;
       box-shadow: 0px 4px 25px rgba(232, 170, 49, 0.43);
+    }
+  }
+
+  &_border {
+    background-color: $color-white;
+    color: $color-orange;
+    border: 2px solid $color-orange;
+    box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.43);
+
+    &:hover {
+      color: $color-white;
+      border: 2px solid $color-orange-mod;
     }
   }
 }
@@ -142,3 +165,113 @@ main {
     }
   }
 }
+
+// catalog some base styles
+
+.breadcrumps {
+  white-space: nowrap;
+  overflow: auto;
+  height: rem(22);
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+  }
+
+  &__link {
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    &::after {
+      content: '\e900';
+      @extend ._ic;
+
+      transform: rotate(-90deg);
+      font-size: rem(6);
+      margin: 0px em(10, 6);
+    }
+  }
+
+  &__current {
+    color: $color-orange;
+  }
+}
+
+//===================================
+
+//title for all pages
+.title {
+  font-weight: 700;
+  font-size: rem(24);
+  line-height: math.div(29, 24);
+
+  &:not(:last-child) {
+    margin-bottom: em(25, 24);
+  }
+}
+
+//select block styles
+.control {
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid rgba(4, 4, 4, 0.3);
+  max-width: 270px;
+  background-color: $color-white;
+  min-height: rem(40);
+
+  font-size: rem(16);
+  line-height: math.div(20, 16);
+  font-weight: 500;
+  font-family: Montserrat;
+  padding: 0px rem(20);
+  cursor: pointer;
+}
+//===================================
+
+//pagination for catalog
+
+.pagging {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: rem(30);
+  &__arrow {
+    &::before {
+      font-size: rem(10);
+    }
+    &_left {
+      transform: rotate(90deg);
+      color: rgba(0, 0, 0, 0.12);
+    }
+
+    &_right {
+      transform: rotate(-90deg);
+      color: $color-orange;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: rem(13);
+  }
+
+  &__item {
+  }
+
+  &__link {
+    width: rem(34);
+    height: rem(34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    &._active {
+      background-color: $color-orange;
+      color: $color-white;
+    }
+  }
+}
+
+//===================================

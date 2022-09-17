@@ -136,7 +136,8 @@ h6 {
 .products-slider__more::after,
 ._init .spoller-item-footer__title::after,
 .menu-catalog__link[data-parent]::before,
-.phones-header__phone::before {
+.phones-header__phone::before,
+.breadcrumps__link::after {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "icons" !important;
   speak: never;
@@ -256,6 +257,12 @@ main {
   visibility: hidden;
 }
 
+.page_inner {
+  padding-top: 1.875rem;
+}
+.page__header {
+  margin-bottom: 1.875rem;
+}
 .button {
   display: inline-block;
   color: #ffffff;
@@ -276,6 +283,16 @@ main {
     background-color: #dd9f22;
     box-shadow: 0px 4px 25px rgba(232, 170, 49, 0.43);
   }
+}
+.button_border {
+  background-color: #ffffff;
+  color: #e8aa31;
+  border: 2px solid #e8aa31;
+  box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.43);
+}
+.button_border:hover {
+  color: #ffffff;
+  border: 2px solid #dd9f22;
 }
 
 .dotts {
@@ -327,6 +344,88 @@ main {
 .dotts .swiper-pagination-bullet-active::before {
   opacity: 1;
   left: 1.25rem;
+}
+
+.breadcrumps {
+  white-space: nowrap;
+  overflow: auto;
+  height: 1.375rem;
+}
+.breadcrumps__list {
+  display: flex;
+}
+.breadcrumps__link {
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+}
+.breadcrumps__link::after {
+  content: "\e900";
+  transform: rotate(-90deg);
+  font-size: 0.375rem;
+  margin: 0px 1.6666666667em;
+}
+.breadcrumps__current {
+  color: #e8aa31;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.2083333333;
+}
+.title:not(:last-child) {
+  margin-bottom: 1.0416666667em;
+}
+
+.control {
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid rgba(4, 4, 4, 0.3);
+  max-width: 270px;
+  background-color: #ffffff;
+  min-height: 2.5rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  font-weight: 500;
+  font-family: Montserrat;
+  padding: 0px 1.25rem;
+  cursor: pointer;
+}
+
+.pagging {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.875rem;
+}
+.pagging__arrow::before {
+  font-size: 0.625rem;
+}
+.pagging__arrow_left {
+  transform: rotate(90deg);
+  color: rgba(0, 0, 0, 0.12);
+}
+.pagging__arrow_right {
+  transform: rotate(-90deg);
+  color: #e8aa31;
+}
+.pagging__list {
+  display: flex;
+  align-items: center;
+  gap: 0.8125rem;
+}
+.pagging__link {
+  width: 2.125rem;
+  height: 2.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.pagging__link._active {
+  background-color: #e8aa31;
+  color: #ffffff;
 }
 
 .top-header {
@@ -2366,11 +2465,18 @@ main {
   height: 100% !important;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease 0s;
+  position: relative;
 }
 @media screen and (min-width: 480px) {
   .product-card:hover {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   }
+}
+.product-card__sale {
+  position: absolute;
+  top: 1.25rem;
+  left: 0rem;
+  color: #ffffff;
 }
 .product-card__image {
   padding-top: 25px;
@@ -2450,7 +2556,7 @@ main {
   margin-bottom: 0.5em;
 }
 @media screen and (min-width: 480px) {
-  .product-card__title:hover {
+  .product-card__title a:hover {
     text-decoration: underline;
   }
 }
@@ -2690,4 +2796,59 @@ main {
 }
 .products-new__dotts {
   bottom: 0px !important;
+}
+
+.catalog {
+  padding-bottom: 120px;
+}
+@media (max-width: 1620px) {
+  .catalog {
+    padding-bottom: calc(
+        40px + 80 *
+          ((100vw - 320px) / 1300)
+      );
+  }
+}
+@media (max-width: 320px) {
+  .catalog {
+    padding-bottom: 40px;
+  }
+}
+.catalog__body {
+  display: grid;
+  grid-template-columns: 23.4375rem 1fr;
+  gap: 1.875rem;
+}
+.catalog__control {
+  display: flex;
+  justify-content: flex-end;
+}
+.catalog__control:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+.catalog__products {
+  display: grid;
+  gap: 1.875rem;
+  grid-template-columns: repeat(auto-fill, minmax(18.125rem, 23.4375rem));
+}
+.catalog__products:not(:last-child) {
+  margin-bottom: 60px;
+}
+@media (max-width: 1620px) {
+  .catalog__products:not(:last-child) {
+    margin-bottom: calc(
+        30px + 30 *
+          ((100vw - 320px) / 1300)
+      );
+  }
+}
+@media (max-width: 320px) {
+  .catalog__products:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+.catalog__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
 }

@@ -75,11 +75,19 @@
 
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease 0s;
-
+  position: relative;
   @media screen and (min-width: $mobileSmall) {
     &:hover {
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
     }
+  }
+  &__sale {
+    position: absolute;
+    top: rem(20);
+    left: rem(0);
+    color: $color-white;
+
+    //6:43:00
   }
   &__image {
     @include adaptiv-value('padding-top', 25, 15, 1, 320, 0);
@@ -109,7 +117,7 @@
     }
 
     @media screen and (min-width: $mobileSmall) {
-      &:hover {
+      a:hover {
         text-decoration: underline;
       }
     }

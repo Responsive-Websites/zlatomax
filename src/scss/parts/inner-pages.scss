@@ -1,0 +1,50 @@
+//catalog page
+
+.catalog {
+  @include adaptiv-value('padding-bottom', 120, 40, 1, 320, 0);
+  &__container {
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: rem(375) 1fr;
+    gap: rem(30);
+  }
+
+  &__filter {
+  }
+
+  &__content {
+  }
+
+  &__control {
+    display: flex;
+    justify-content: flex-end;
+
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__products {
+    display: grid;
+    gap: rem(30);
+    grid-template-columns: repeat(auto-fill, minmax(rem(290), rem(375)));
+
+    &:not(:last-child) {
+      @include adaptiv-value('margin-bottom', 60, 30, 1, 320, 0);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(20);
+  }
+  &__more {
+  }
+  &__pagging {
+  }
+}
+
+//====================================
