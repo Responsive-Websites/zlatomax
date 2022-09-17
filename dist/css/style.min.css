@@ -1993,14 +1993,14 @@ main {
 @media (max-width: 1620px) {
   .body-footer {
     gap: calc(
-        15px + 20 *
+        25px + 10 *
           ((100vw - 320px) / 1300)
       );
   }
 }
 @media (max-width: 320px) {
   .body-footer {
-    gap: 15px;
+    gap: 25px;
   }
 }
 @media (max-width: 1620px) {
@@ -2052,6 +2052,33 @@ main {
   padding-bottom: 1.875rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
+.body-footer__bottom {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  line-height: 1.9285714286;
+}
+@media screen and (min-width: 75rem) {
+  .body-footer__bottom {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: space-between;
+  }
+}
+.body-footer__rules {
+  max-width: 51.25rem;
+}
+.body-footer__copy {
+  margin-top: 0.625rem;
+}
+@media screen and (min-width: 75rem) {
+  .body-footer__copy {
+    margin-top: 0px;
+  }
+}
+.body-footer__copy span {
+  white-space: nowrap;
+}
+
 .spoller-item-footer__title {
   text-transform: uppercase;
   color: #ffffff;
@@ -2107,8 +2134,9 @@ main {
   }
 }
 .spoller-item-footer__text {
+  max-width: 20rem;
   line-height: 1.5;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.8);
 }
 .spoller-item-footer__text a {
   color: #e8aa31;
@@ -2119,6 +2147,22 @@ main {
   }
 }
 
+.menu-footer:not(:last-child) {
+  margin-bottom: 32px;
+}
+@media (max-width: 1620px) {
+  .menu-footer:not(:last-child) {
+    margin-bottom: calc(
+        20px + 12 *
+          ((100vw - 320px) / 1300)
+      );
+  }
+}
+@media (max-width: 320px) {
+  .menu-footer:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
 .menu-footer__item {
   color: #ffffff;
   opacity: 0.8;
@@ -2153,7 +2197,7 @@ main {
 .footer-subscribe__label {
   line-height: 1.2222222222;
   display: block;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.8);
 }
 .footer-subscribe__label:not(:last-child) {
   margin-bottom: 0.5555555556em;
@@ -2189,6 +2233,10 @@ main {
   transform: rotate(-90deg);
 }
 
+.social-footer {
+  display: flex;
+  gap: 1.5rem;
+}
 .popup {
   position: fixed;
   width: 100%;
