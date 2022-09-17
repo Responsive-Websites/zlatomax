@@ -428,6 +428,35 @@ main {
   color: #ffffff;
 }
 
+.checkbox {
+  position: relative;
+}
+.checkbox__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.checkbox__input:focus + .checkbox__label::before {
+  box-shadow: 0px 0px 5px #000;
+}
+.checkbox__input:checked + .checkbox__label::before {
+  background: #000;
+}
+.checkbox__label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  gap: 0.625rem;
+}
+.checkbox__label::before {
+  content: "";
+  align-self: flex-start;
+  flex: 0 0 1.25rem;
+  height: 1.25rem;
+  background-color: #000;
+}
 .top-header {
   background-color: #141414;
   color: #ffffff;
@@ -2486,8 +2515,6 @@ main {
   right: -0.5625rem;
   top: -0.5625rem;
   border-radius: 50%;
-  background-color: #e8aa31;
-  box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.3);
 }
 
 .noUi-vertical {
@@ -2510,10 +2537,7 @@ main {
  * Giving the connect element a border radius causes issues with using transform: scale
  */
 .noUi-target {
-  background: #fafafa;
-  border-radius: 4px;
-  border: 1px solid #d3d3d3;
-  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbb;
+  background: #e8aa31;
 }
 
 .noUi-connects {
@@ -2521,7 +2545,7 @@ main {
 }
 
 .noUi-connect {
-  background: #e8aa31;
+  background: #141414;
 }
 
 /* Handles and cursors;
@@ -2535,15 +2559,18 @@ main {
 }
 
 .noUi-handle {
-  border: 1px solid #d9d9d9;
-  border-radius: 3px;
-  background: #fff;
-  cursor: default;
-  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
+  background-color: #e8aa31;
+  box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.3);
 }
-
-.noUi-active {
-  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ddd, 0 3px 6px -3px #bbb;
+.noUi-handle::before {
+  content: "";
+  position: absolute;
+  background-color: #141414;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  top: 0.1875rem;
+  left: 0.1875rem;
 }
 
 /* Handle stripes;
@@ -3150,6 +3177,7 @@ main {
 }
 .catalog__body {
   display: grid;
+  align-items: start;
   grid-template-columns: 23.4375rem 1fr;
   gap: 1.875rem;
 }
@@ -3227,7 +3255,7 @@ main {
   overflow: hidden;
 }
 .price-filter__inputs:not(:last-child) {
-  margin-bottom: 1.875rem;
+  margin-bottom: 3.125rem;
 }
 .price-filter__input {
   width: 50%;
@@ -3240,4 +3268,26 @@ main {
 }
 .price-filter__input:not(:last-child) {
   border-right: 1px solid #cbcbcb;
+}
+.item-filter-catalog__title {
+  background-color: #141414;
+  width: 100%;
+  color: #ffffff;
+  padding: 0.8125rem 1.875rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.item-filter-catalog__title::before {
+  color: #e8aa31;
+  font-size: 0.5rem;
+  transform: rotate(-180deg);
+  transition: transform 0.3s ease 0s;
+}
+.item-filter-catalog__title._active::before {
+  transform: rotate(0deg);
+}
+.item-filter-catalog__body {
+  padding: 1.875rem;
 }

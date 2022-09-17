@@ -8,6 +8,7 @@
 
   &__body {
     display: grid;
+    align-items: start;
     grid-template-columns: rem(375) 1fr;
     gap: rem(30);
   }
@@ -69,6 +70,8 @@
 
   &__price {
   }
+  &__item {
+  }
 }
 .price-filter {
   padding: rem(30);
@@ -102,7 +105,7 @@
     border-radius: rem(3);
     overflow: hidden;
     &:not(:last-child) {
-      margin-bottom: rem(30);
+      margin-bottom: rem(50);
     }
   }
 
@@ -122,5 +125,34 @@
   }
 
   &__range {
+  }
+}
+
+.item-filter-catalog {
+  &__title {
+    background-color: $color-dark;
+    width: 100%;
+    color: $color-white;
+    padding: rem(13) rem(30);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    &::before {
+      color: $color-orange;
+      font-size: rem(8);
+      transform: rotate(-180deg);
+      transition: transform 0.3s ease 0s;
+    }
+    &._active {
+      &::before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__body {
+    padding: rem(30);
   }
 }

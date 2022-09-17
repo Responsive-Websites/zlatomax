@@ -275,3 +275,46 @@ main {
 }
 
 //===================================
+
+//checkbox styles
+
+.checkbox {
+  position: relative;
+
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:focus + .checkbox__label::before {
+      box-shadow: 0px 0px 5px #000;
+    }
+    &:checked + .checkbox__label::before {
+      background: #000;
+    }
+  }
+
+  //7:21:00
+
+  &__label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    gap: rem(10);
+
+    &::before {
+      content: '';
+      align-self: flex-start;
+      flex: 0 0 rem(20);
+      height: rem(20);
+      background-color: #000;
+    }
+  }
+
+  &__text {
+  }
+}
+
+//===================================
