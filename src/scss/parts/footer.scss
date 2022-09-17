@@ -100,19 +100,100 @@
     @include adaptiv-value('padding-top', 30, 20, 1, 320, 0);
     @include adaptiv-value('padding-bottom', 30, 20, 1, 320, 0);
   }
+  &__text {
+    line-height: math.div(27, 18);
+    color: $color-white;
+    a {
+      color: $color-orange;
+
+      @media screen and (min-width: $mobile) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 .menu-footer {
   &__list {
   }
 
   &__item {
+    color: $color-white;
+    opacity: 0.8;
+    display: flex;
+    line-height: 1.5;
     &:not(:last-child) {
       margin-bottom: em(20, 18);
+    }
+    p {
+      opacity: 0.8;
+    }
+
+    &::before {
+      font-size: rem(20);
+      margin-right: em(10, 15);
+      margin-top: em(5, 15);
+    }
+    &._icon-footer-email {
+      &::before {
+        font-size: rem(13);
+      }
     }
   }
 
   &__link {
     line-height: math.div(27, 18);
     color: rgba(255, 255, 255, 0.8);
+    display: inline-flex;
+    @media screen and (min-width: $mobile) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.footer-subscribe {
+  &__label {
+    line-height: math.div(22, 18);
+    display: block;
+    color: $color-white;
+    &:not(:last-child) {
+      margin-bottom: em(10, 18);
+    }
+  }
+
+  &__line {
+    display: flex;
+    border-radius: rem(3);
+    overflow: hidden;
+  }
+
+  &__input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid $color-white;
+    height: rem(48);
+    padding: 0px rem(20);
+    color: $color-white;
+    width: 100%;
+    border-right: none;
+    border-radius: rem(3) 0px 0px rem(3);
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.52);
+    }
+  }
+
+  &__button {
+    flex: 0 0 rem(50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-orange;
+    &::before {
+      color: $color-white;
+      font-size: rem(10);
+      transform: rotate(-90deg);
+    }
   }
 }
