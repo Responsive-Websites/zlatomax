@@ -1,3 +1,4 @@
+@use 'sass:math';
 .product {
   &__container {
   }
@@ -8,10 +9,20 @@
 
 .main-product {
   display: grid;
-  grid-template-columns: percent(785, 1600) 1fr;
 
+  align-items: start;
+
+  @include adaptiv-value('margin-bottom', 120, 40, 1, 320, 0);
   &__images {
-    padding-right: rem(30);
+    @media screen and (min-width: $tablet) {
+      padding-right: rem(30);
+    }
+  }
+  &__body {
+  }
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: percent(785, 1600) 1fr;
   }
 }
 .images-product {
@@ -44,8 +55,183 @@
 
   &__slide {
     cursor: pointer;
+
+    opacity: 0.5;
+    transition: opacity 0.3s ease 0s;
+    &.swiper-slide-thumb-active {
+      opacity: 1;
+    }
   }
   &__slide-wrapper {
-    padding-bottom: percent(197, 195);
+    padding-bottom: percent(197, 345);
+
+    @media screen and (min-width: $tablet) {
+      padding-bottom: percent(197, 195);
+    }
   }
 }
+
+//==================================
+.body-product {
+  background: #fefefe;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
+  @include adaptiv-value('padding', 30, 15, 1, 320, 0);
+  &__header {
+    border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+    padding-bottom: rem(30);
+  }
+
+  &__table {
+    border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+    padding: rem(30) 0px;
+  }
+
+  &__options {
+    border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+    padding: rem(30) 0px;
+  }
+
+  &__actions {
+    padding: rem(30) 0px 0px 0px;
+  }
+}
+.header-product {
+  &__line {
+    column-gap: rem(30);
+    row-gap: rem(15);
+    display: flex;
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+
+    @media screen and (max-width: calc($mobile - 1px)) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__title {
+    font-size: rem(24);
+    font-weight: 700;
+    line-height: math.div(29, 24);
+    flex: 1 1 100%;
+  }
+
+  &__link {
+    font-size: rem(24);
+
+    &::before {
+      transition: color 0.3s ease;
+    }
+    &:hover {
+      &::before {
+        color: $color-orange;
+      }
+    }
+  }
+
+  &__rating {
+  }
+}
+
+.table-product {
+  display: grid;
+
+  gap: rem(20);
+  &__label {
+  }
+
+  &__value {
+    color: rgba(20, 20, 20, 0.5);
+  }
+
+  @media screen and (min-width: $mobile) {
+    grid-template-columns: rem(200) 1fr;
+  }
+}
+.options-product {
+  display: grid;
+  @media screen and (min-width: $mobile) {
+    grid-template-columns: rem(200) 1fr;
+  }
+  gap: rem(20);
+  &__label {
+    align-self: center;
+  }
+
+  &__value {
+    select {
+      width: 100%;
+      background-color: $color-white;
+      border: 1px solid rgba(4, 4, 4, 0.15);
+      border-radius: 3px;
+      padding: rem(10) rem(20);
+      font-size: rem(14);
+
+      font-family: Montserrat;
+    }
+  }
+}
+.actions-product {
+  &__price {
+    font-size: rem(30);
+    font-weight: 700;
+    line-height: math.div(37, 30);
+    display: inline-block;
+    background: url('../../img/icons/rub.svg') right no-repeat;
+    padding: 0px rem(30) 0px 0px;
+
+    &:not(:last-child) {
+      margin-bottom: em(35, 30);
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: rem(20);
+
+    @media screen and (max-width: rem(1520)) {
+      flex-direction: column;
+    }
+  }
+
+  &__quantity {
+    @media screen and (max-width: rem(1520)) {
+      align-self: flex-start;
+    }
+  }
+
+  &__buttons {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(20);
+
+    @media screen and (min-width: rem(1521)) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__cart {
+    span {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        margin-left: rem(20);
+      }
+    }
+
+    @media screen and (max-width: rem(1520)) {
+      width: 100%;
+    }
+  }
+  &__button {
+    @media screen and (max-width: rem(1520)) {
+      width: 100%;
+    }
+  }
+}
+//==================================

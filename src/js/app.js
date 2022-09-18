@@ -792,12 +792,6 @@ const thumbsSwiper = new Swiper('.thumbs-images', {
   speed: 800,
   spaceBetween: 16,
   breakpoints: {
-    320: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
     992: {
       slidesPerView: 3,
     },
@@ -923,3 +917,27 @@ if (document.querySelector('.filter-catalog__title')) {
     }
   });
 }
+
+//quantity values block
+
+function increaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number').value = value;
+}
+
+function decreaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? (value = 1) : '';
+  value--;
+  document.getElementById('number').value = value;
+}
+
+document.getElementById('increase').addEventListener('click', function (e) {
+  increaseValue();
+});
+document.getElementById('decrease').addEventListener('click', function (e) {
+  decreaseValue();
+});

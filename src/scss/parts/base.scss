@@ -107,6 +107,18 @@ main {
       border: 2px solid $color-orange-mod;
     }
   }
+
+  &_black {
+    background-color: $color-dark;
+    color: $color-white;
+    border: 2px solid $color-dark;
+    box-shadow: none;
+    padding: rem(8) rem(30);
+    &:hover {
+      color: $color-white;
+      border: 2px solid $color-orange-mod;
+    }
+  }
 }
 .dotts {
   display: grid;
@@ -336,3 +348,41 @@ main {
 }
 
 //===================================
+
+//quantity styles
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__button {
+    width: rem(50);
+    height: rem(50);
+    background-color: $color-dark;
+    color: $color-white;
+    text-align: center;
+
+    transition: all 0.2s ease 0s;
+
+    &:hover {
+      background-color: $color-orange;
+      color: $color-dark;
+    }
+    &:active {
+      background-color: $color-orange-mod;
+    }
+    &_plus {
+    }
+
+    &_minus {
+    }
+  }
+
+  &__input {
+    input {
+      max-width: rem(50);
+      padding: rem(14) rem(10);
+      text-align: center;
+    }
+  }
+}
