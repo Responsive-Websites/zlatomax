@@ -204,11 +204,11 @@
 .rating {
   display: flex;
   align-items: flex-end;
-  font-size: rem(30);
+  font-size: rem(28);
 
   &__body {
     position: relative;
-    letter-spacing: em(8, 30);
+    letter-spacing: em(8, 28);
     &:before {
       content: '★★★★★';
       display: block;
@@ -258,7 +258,7 @@
 
   &__info {
     color: #ababab;
-    font-size: rem(16);
+    font-size: rem(14);
   }
 }
 
