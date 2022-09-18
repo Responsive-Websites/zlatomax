@@ -3342,3 +3342,34 @@ main {
 .item-filter-catalog__checkbox:not(:last-child) {
   margin-bottom: 1.375rem;
 }
+
+.main-product {
+  display: grid;
+  grid-template-columns: 49.0625% 1fr;
+}
+.main-product__images {
+  padding-right: 1.875rem;
+}
+
+.images-product {
+  display: grid;
+  gap: 1rem;
+}
+.images-product__slider {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+.images-product__slide-wrapper {
+  padding-bottom: 76.525198939%;
+}
+.images-product__thumbs {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.thumbs-images__slide {
+  cursor: pointer;
+}
+.thumbs-images__slide-wrapper {
+  padding-bottom: 101.0256410256%;
+}

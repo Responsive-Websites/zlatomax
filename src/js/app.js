@@ -785,6 +785,46 @@ const swiperNewProduct = new Swiper('.products-new__slider', {
   },
 });
 
+const thumbsSwiper = new Swiper('.thumbs-images', {
+  slidesPerView: 4,
+  watchOverflow: true,
+  autoHeight: true,
+  speed: 800,
+  spaceBetween: 16,
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    992: {
+      slidesPerView: 3,
+    },
+    1380: {
+      slidesPerView: 4,
+      spaceBetween: 16,
+    },
+  },
+});
+
+const swiperProductMain = new Swiper('.images-product__slider', {
+  observer: true,
+  observeParents: true,
+  slidesPerView: 1,
+  watchOverflow: true,
+  spaceBetween: 16,
+  autoHeight: true,
+  speed: 800,
+  thumbs: {
+    swiper: thumbsSwiper,
+  },
+
+  // autoplay: {
+  //   delay: 3000,
+  // },
+});
+
 //rating
 const ratings = document.querySelectorAll('.rating');
 
