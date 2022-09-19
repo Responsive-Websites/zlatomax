@@ -123,6 +123,36 @@
                 <option value="1">Чёрная</option>
               </select>
             </div>
+
+            <div class="options-product__label">Рукоять</div>
+            <div class="options-product__value">
+              <select>
+                <option value="1" selected>Выбрать рукоять</option>
+                <option value="1">Классическая</option>
+                <option value="1">Прочная</option>
+                <option value="1">Чёрная</option>
+              </select>
+            </div>
+
+            <div class="options-product__label">Гарда и тыльник</div>
+            <div class="options-product__value">
+              <select>
+                <option value="1" selected>Выбрать гарда и тыльник</option>
+                <option value="1">Классическая</option>
+                <option value="1">Прочная</option>
+                <option value="1">Чёрная</option>
+              </select>
+            </div>
+
+            <div class="options-product__label">Обработка клинка</div>
+            <div class="options-product__value">
+              <select>
+                <option value="1" selected>Выбрать обработку</option>
+                <option value="1">Классическая</option>
+                <option value="1">Прочная</option>
+                <option value="1">Чёрная</option>
+              </select>
+            </div>
           </div>
           <div class="body-product__actions actions-product">
             <div class="actions-product__price">3 865</div>
@@ -284,10 +314,8 @@
       </div>
     </div>
   </div>
-
-  @@include('_products-slider.html', { "title":"Похожие товары", "moretext":"Подробнее" });
-
+  @@include('_products-slider.html', { "title":"Похожие товары", "moretext":"Подробнее" })
   <div class="page__hits-products hits-products hits-products_mod">
-    @@include('_products-slider.html', { "title":"Рекомендуем", "moretext":"Подробнее" });
+    @@include('_products-slider.html', { "title":"Рекомендуем", "moretext":"Подробнее" })
   </div>
 </main>

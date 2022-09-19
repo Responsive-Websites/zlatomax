@@ -19,9 +19,11 @@
 
   &__title {
     letter-spacing: 0.05em;
-    font-size: rem(30);
+
+    @include adaptiv-value('font-size', 30, 24, 1, 320, 0);
     font-weight: 700;
     line-height: math.div(46, 30);
+    margin-bottom: rem(10);
   }
 
   &__more {
@@ -53,7 +55,7 @@
 
   &__swiper {
     &:not(:last-child) {
-      @include adaptiv-value('margin-bottom', 50, 20, 1, 320, 0);
+      @include adaptiv-value('margin-bottom', 50, 40, 1, 320, 0);
     }
   }
 

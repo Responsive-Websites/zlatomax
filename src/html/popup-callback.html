@@ -1,8 +1,24 @@
 <div class="popup" id="callback1">
   <div class="popup__wrapper">
     <div class="popup__content">
-      <button type="button" class="popup__close close-popup">X</button>
-      <div class="popup__text">Тут будет форма !</div>
+      <button type="button" class="popup__close close-popup">×</button>
+
+      <form action="#" class="popup__body footer-subscribe">
+        <label for="subscribe-input-popup" class="footer-subscribe__label"
+          >Введите ваш номер телефона <br />
+          и мы вам перезвоним!</label
+        >
+        <div class="footer-subscribe__line">
+          <input
+            id="subscribe-input-popup"
+            placeholder="Ваш номер телефона"
+            type="text"
+            class="footer-subscribe__input"
+          />
+
+          <button type="submit" class="footer-subscribe__button _icon-footer-phone"></button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

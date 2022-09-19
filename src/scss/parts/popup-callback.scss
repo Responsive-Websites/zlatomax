@@ -45,8 +45,37 @@
   &__close {
     position: absolute;
     right: 10px;
-    top: 10px;
-    font-size: 20px;
+    top: 0px;
+    font-size: rem(40);
     color: #000;
+
+    transition: color 0.3s ease 0s;
+    &:hover {
+      color: $color-orange;
+    }
+  }
+  &__body {
+    label {
+      color: $color-dark;
+      text-align: center;
+      padding: rem(10);
+      display: block;
+      margin-bottom: rem(30) !important;
+    }
+    input {
+      color: $color-dark;
+      font-size: rem(20);
+      border: 1px solid $color-dark;
+      border-right: 0px;
+    }
+    & input::placeholder {
+      color: rgb(92, 90, 90);
+    }
+
+    & button {
+      &::before {
+        font-size: rem(20);
+      }
+    }
   }
 }
