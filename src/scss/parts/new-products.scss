@@ -74,12 +74,13 @@
       margin-bottom: rem(50);
     }
     &.swiper-wrapper {
+      height: auto !important;
     }
   }
 
   &__slide {
     &.swiper-slide {
-      height: 100% !important;
+      height: auto !important;
     }
   }
   &__dotts {

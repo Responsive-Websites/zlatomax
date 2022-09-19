@@ -57,11 +57,12 @@
     &:not(:last-child) {
       @include adaptiv-value('margin-bottom', 50, 40, 1, 320, 0);
     }
+    height: auto !important;
   }
 
   &__slide {
     &.swiper-slide {
-      height: 100%;
+      height: auto;
     }
   }
 

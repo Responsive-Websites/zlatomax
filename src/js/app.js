@@ -709,7 +709,7 @@ const swiperProduct = new Swiper('.products-slider__slider', {
   observeParents: true,
 
   speed: 800,
-  autoHeight: true,
+
   watchOverflow: true,
 
   pagination: {
@@ -729,7 +729,7 @@ const swiperProduct = new Swiper('.products-slider__slider', {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 10,
     },
     768: {
       slidesPerView: 2,
@@ -751,7 +751,7 @@ const swiperNewProduct = new Swiper('.products-new__slider', {
   observeParents: true,
   slidesPerView: 3,
   watchOverflow: true,
-  autoHeight: true,
+
   speed: 800,
   autoplay: {
     delay: 3000,
