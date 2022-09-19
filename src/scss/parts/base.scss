@@ -386,3 +386,209 @@ main {
     }
   }
 }
+
+//========================================================
+
+//tabs styles
+.product-info {
+  background: #fefefe;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  @include adaptiv-value('padding', 30, 10, 1, 320, 0);
+  padding-top: rem(0) !important;
+  &__label {
+    order: 1;
+    display: block;
+
+    cursor: pointer;
+    @include adaptiv-value('padding-top', 30, 20, 1, 320, 0);
+    @include adaptiv-value('padding-bottom', 30, 20, 1, 320, 0);
+
+    @media screen and (min-width: calc($tablet + 1px)) {
+      @include adaptiv-value('margin-right', 60, 20, 1, 320, 0);
+    }
+  }
+  &__input[type='radio'] {
+    display: none;
+  }
+  &__input[type='radio']:checked + label {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      height: rem(2);
+      width: 100%;
+      bottom: 0px;
+      left: 0px;
+      background-color: $color-orange;
+    }
+  }
+  &__input[type='radio']:checked + label + .tabs__content {
+    transition: all 1s ease 0s;
+    visibility: visible;
+    opacity: 1;
+    position: static;
+  }
+
+  @media screen and (max-width: $tablet) {
+    &__content,
+    &__label {
+      order: initial;
+    }
+    &__label {
+      width: 100%;
+    }
+  }
+
+  &__comments {
+    @media screen and (min-width: $mobile) {
+      display: flex;
+      gap: rem(20);
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__none-comment {
+    line-height: math.div(22, 18);
+    @media screen and (max-width: calc($mobile - 1px)) {
+      &:not(:last-child) {
+        margin-bottom: rem(20);
+      }
+    }
+  }
+
+  &__write-comment {
+    white-space: nowrap;
+    @media screen and (max-width: calc($mobile - 1px)) {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    order: 99;
+    flex-grow: 1;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+
+    background: #fff;
+  }
+  &__content-wrapper {
+    border-top: 1px solid rgba(20, 20, 20, 0.15);
+    padding-top: rem(30);
+    margin-top: -1px;
+    &_mod {
+      @include adaptiv-value('padding-right', 120, 0, 1, 320, 0);
+    }
+    p {
+      color: $color-dark;
+      line-height: math.div(27, 18);
+    }
+    strong {
+      font-weight: 600;
+    }
+  }
+  &__info-text {
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+  &__characteristics {
+  }
+  &__delivery {
+  }
+}
+
+.delivery-block {
+  display: grid;
+  gap: rem(20);
+  &__item {
+    display: grid;
+    gap: rem(15);
+
+    @media screen and (min-width: $mobileSmall) {
+      grid-template-columns: minmax(rem(130), auto) minmax(rem(130), rem(300));
+      justify-content: start;
+      align-items: center;
+      gap: rem(30);
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    line-height: math.div(22, 18);
+  }
+
+  &__select {
+    font-family: Montserrat;
+    background-color: $color-white;
+    padding: rem(10) rem(20);
+    border: 1px solid rgba(4, 4, 4, 0.15);
+    border-radius: 3px;
+  }
+
+  &__option {
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+  }
+}
+
+.characteristics-tab {
+  display: grid;
+
+  gap: rem(30);
+
+  @media screen and (min-width: $mobileSmall) {
+    grid-template-columns: repeat(auto-fit, minmax(rem(450), 1fr));
+  }
+  &__column {
+    &:not(:last-child) {
+      border-right: 1px solid rgba(20, 20, 20, 0.15);
+      @media screen and (max-width: rem(1499)) {
+        border-right: none;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+
+    line-height: math.div(22, 18);
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__items {
+    padding-right: rem(20);
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+    display: grid;
+
+    line-height: math.div(22, 18);
+    gap: rem(5);
+    @media screen and (min-width: $mobileSmall) {
+      grid-template-columns: rem(200) 1fr;
+      gap: rem(60);
+    }
+  }
+
+  &__name {
+  }
+
+  &__value {
+  }
+}
+
+//========================================================
