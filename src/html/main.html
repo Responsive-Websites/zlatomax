@@ -237,7 +237,7 @@
             </div>
           </div>
 
-          <input type="radio" name="tabs" id="tab3" checked="checked" class="tabs__input" />
+          <input type="radio" name="tabs" id="tab3" class="tabs__input" />
           <label for="tab3" id="tab3-label" class="tabs__label">Отзывы</label>
           <div id="tab1-content" class="tabs__content">
             <div class="tabs__content-wrapper">
@@ -245,12 +245,12 @@
                 <div class="tabs__none-comment">
                   У данного товара нет отзывов. Станьте первым, кто оставил отзыв об этом товаре!
                 </div>
-                <div class="tabs__write-comment button button_black">Написать отзыв</div>
+                <button type="button" class="tabs__write-comment button button_black">Написать отзыв</button>
               </div>
             </div>
           </div>
 
-          <input type="radio" name="tabs" id="tab4" checked="checked" class="tabs__input" />
+          <input type="radio" name="tabs" id="tab4" class="tabs__input" />
           <label for="tab4" id="tab4-label" class="tabs__label">Доставка</label>
           <div id="tab1-content" class="tabs__content">
             <div class="tabs__content-wrapper">
@@ -283,5 +283,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  @@include('_products-slider.html', { "title":"Похожие товары", "moretext":"Подробнее" });
+
+  <div class="page__hits-products hits-products hits-products_mod">
+    @@include('_products-slider.html', { "title":"Рекомендуем", "moretext":"Подробнее" });
   </div>
 </main>

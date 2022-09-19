@@ -438,6 +438,10 @@
 .hits-products {
   @include adaptiv-value('padding-top', 50, 40, 1, 320, 0);
   @include adaptiv-value('padding-bottom', 120, 40, 1, 320, 0);
+
+  &_mod {
+    @include adaptiv-value('padding-top', 120, 40, 1, 320, 0);
+  }
 }
 
 .link-arrow {

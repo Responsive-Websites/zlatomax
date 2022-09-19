@@ -6,9 +6,7 @@
   &__main {
   }
   &__info {
-    &:not(:last-child) {
-      @include adaptiv-value('margin-bottom', 120, 40, 1, 320, 0);
-    }
+    @include adaptiv-value('margin-bottom', 120, 40, 1, 320, 0);
   }
 }
 
